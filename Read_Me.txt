@@ -1,6 +1,6 @@
 Link to GitHub Repo: https://shivammishraa25.github.io/studentRegistrationSystem/
 
-Link to Video of the Website:  
+Link to Video of the Website: https://drive.google.com/file/d/1r_d3HQV_z1bAyadu-8Aviu1pFgkCgxL-/view?usp=drivesdk
 
 
 
