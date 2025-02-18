@@ -1,3 +1,4 @@
+// Saving form inputs to local storage and rendering them in a table
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const nameInput = document.getElementById("name");
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function saveToLocalStorage() {
         localStorage.setItem("students", JSON.stringify(students));
-    }
+    } // Save students array to local storage
 
     function renderTable() {
         tableBody.innerHTML = "";
@@ -31,23 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 </td>
             </tr>`;
             tableBody.innerHTML += row;
-        });
+        }); // Table rendering dynamically inside students section
 
         document.querySelectorAll(".edit-btn").forEach(button => {
             button.addEventListener("click", function () {
                 editStudent(this.dataset.index);
-            });
+            }); //Edit button, when clicked sends student's data inside form fields.
         });
 
         document.querySelectorAll(".delete-btn").forEach(button => {
             button.addEventListener("click", function () {
                 deleteStudent(this.dataset.index);
-            });
+            }); //Delete button
         });
 
         checkScrollBar();
     }
-
+// Make sure all info entered type is accordingly. eg, name can't have numbers.
     function validateInputs() {
         let nameValid = /^[a-zA-Z ]+$/.test(nameInput.value.trim());
         let idValid = /^\d+$/.test(idInput.value.trim());
@@ -63,13 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
             tableContainer.style.display = "block";
         } else {
             tableContainer.style.maxHeight = "none";
-        }
+        } //Dynamically added Scrollbar
     }
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         if (!validateInputs()) {
-            alert("Please enter valid details.");
+            alert("Please enter valid details."); //Output if empty field or wrong info is filled.
             return;
         }
         let student = {
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             email: emailInput.value.trim(),
             phone: phoneInput.value.trim(),
             address: addressInput.value.trim()
-        };
+        }; // Entered info is removed and taken to local storage in an array alled "student."
         if (editIndex === -1) {
             students.push(student);
         } else {
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         saveToLocalStorage();
         renderTable();
-        form.reset();
+        form.reset(); //Stored then Rendered Table then Form is reset.
     });
 
     function editStudent(index) {
@@ -100,13 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
         addressInput.value = student.address;
         submitButton.textContent = "Update";
         editIndex = index;
-    }
+    } // function for Editing student's info
 
     function deleteStudent(index) {
         students.splice(index, 1);
         saveToLocalStorage();
         renderTable();
-    }
+    } // function for deleting student's info
 
-    renderTable();
+    renderTable(); // Final Table Render.
 });

@@ -185,18 +185,18 @@ table {
 th, td {
   padding: 0.5em 0.2em;
   text-align: left;
-  color: #000; /* Changed color to black for better visibility */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Added border for modern look */
+  color: #000; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
 }
 th {
-  background: rgba(255, 255, 255, 0.4); /* Lightened background for better contrast */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Thicker border for header */
+  background: rgba(255, 255, 255, 0.4); 
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5); 
 }
 tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.2); /* Lightened background for better contrast */
+  background: rgba(255, 255, 255, 0.2); 
 }
 tbody tr:hover {
-  background: rgba(255, 255, 255, 0.3); /* Lightened background for better contrast */
+  background: rgba(255, 255, 255, 0.3); 
 }
 
 
